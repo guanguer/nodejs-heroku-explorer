@@ -1,0 +1,32 @@
+{
+  "name": "nodejs-heroku-explorer",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A simple nodejs application that list resources in a heroku account",
+  "engines": {
+    "node": "18.x || 20.x || 22.x"
+  },
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest --coverage"
+  },
+  "keywords": [
+    "nodejs",
+    "heroku"
+  ],
+  "author": "guanguer",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guanguer/nodejs-heroku-explorer"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.1.0"
+  }
+}
