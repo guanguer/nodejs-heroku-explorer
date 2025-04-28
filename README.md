@@ -1,6 +1,6 @@
 # nodejs-heroku-explorer
 
-A barebones Node.js app using [Express](https://expressjs.com/)
+A Node.js app using [Express](https://expressjs.com/)
 
 # Running Locally
 
