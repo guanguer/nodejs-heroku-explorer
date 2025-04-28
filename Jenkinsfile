@@ -55,7 +55,7 @@ pipeline {
     }
     stage('Promote-to-Production') {
       steps {
-        sh '/usr/local/bin/heroku pipelines:promote -a nodejs-heroku-explorer-uat --to nodejs-heroku-explorer-production'
+        sh '/usr/local/bin/heroku pipelines:promote -a nodejs-heroku-explorer-uat --to nodejs-heroku-explorer-prod'
       }
     }
   }
