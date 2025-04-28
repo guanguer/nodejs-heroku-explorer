@@ -22,6 +22,11 @@ pipeline {
         }
       }
     }
+    stage('PromoteToQA') {
+      steps {
+        //
+      }
+    }
   }
   post {
     always {
