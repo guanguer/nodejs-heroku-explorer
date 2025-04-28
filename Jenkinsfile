@@ -25,13 +25,37 @@ pipeline {
     stage('Developer-Approval') {
       steps {
         timeout(time: 15, unit: "MINUTES") {
-          input message: 'Do you want to approve the deployment?', ok: 'YES'
+          input message: 'Do you want to approve the promotion to QA?', ok: 'YES'
         }
       }
     }
     stage('Promote-to-QA') {
       steps {
-        sh 'heroku pipelines:promote -a nodejs-heroku-explorer-dev --to nodejs-heroku-explorer-qa'
+        sh '/usr/local/bin/heroku pipelines:promote -a nodejs-heroku-explorer-dev --to nodejs-heroku-explorer-qa'
+      }
+    }
+    stage('Quality-Approval') {
+      steps {
+        timeout(time: 15, unit: "MINUTES") {
+          input message: 'Do you want to approve the promotion to UAT?', ok: 'YES'
+        }
+      }
+    }
+    stage('Promote-to-UAT') {
+      steps {
+        sh '/usr/local/bin/heroku pipelines:promote -a nodejs-heroku-explorer-qa --to nodejs-heroku-explorer-uat'
+      }
+    }
+    stage('Business-Approval') {
+      steps {
+        timeout(time: 15, unit: "MINUTES") {
+          input message: 'Do you want to approve the promotion to Production?', ok: 'YES'
+        }
+      }
+    }
+    stage('Promote-to-Production') {
+      steps {
+        sh '/usr/local/bin/heroku pipelines:promote -a nodejs-heroku-explorer-uat --to nodejs-heroku-explorer-production'
       }
     }
   }
