@@ -22,6 +22,13 @@ pipeline {
         }
       }
     }
+    stage('Developer-Approval') {
+      steps {
+        timeout(time: 15, unit: "MINUTES") {
+          input message: 'Do you want to approve the deployment?', ok: 'YES'
+        }
+      }
+    }
   }
   post {
     always {
